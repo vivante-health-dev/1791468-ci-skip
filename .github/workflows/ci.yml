@@ -10,3 +10,4 @@ jobs:
         run: |
           echo "Hello"
           date
+          echo ${{ github.event.head_commit.message }}
