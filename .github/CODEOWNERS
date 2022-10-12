@@ -1,0 +1,10 @@
+# Engineering team should review any files by default
+* @vivante-health-dev/eng
+# Terraform updates require devops review
+*.tf @vivante-health-dev/devops
+# GitHub Actions workflow updates require devops review
+.github/workflows @vivante-health-dev/devops
+# CODEOWNER updates require devops review (.github/CODEOWNERS takes precedence over CODEOWNERS at root)
+.github/CODEOWNERS @vivante-health-dev/devops
+# Helm updates require devops review
+/helm/ @vivante-health-dev/devops
