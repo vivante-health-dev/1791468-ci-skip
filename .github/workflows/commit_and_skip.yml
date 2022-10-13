@@ -16,10 +16,17 @@ jobs:
         run: |
           git config --global user.name 'Github Actions'
           git config --global user.email 'gh-actions@example.com'
-      - name: Push changes
+      - name: Working skipper
         shell: bash
         run: |
           date >> README.md
           git add README.md
-          git commit -m $'This commit should not trigger the ci workflow\n\n\nskip-checks:true'
+          git commit -m $'This works and does not trigger the ci workflow [skip ci]'
+          git push origin ${{ github.head_ref }}
+      - name: Not working skipper
+        shell: bash
+        run: |
+          date >> README.md
+          git add README.md
+          git commit -m $'This doesn't work and will trigger the ci workflow\n\n\nskip-checks:true'
           git push origin ${{ github.head_ref }}
