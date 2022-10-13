@@ -15,5 +15,5 @@ jobs:
       - name: Push changes
         shell: bash
         run: |
-          git commit --allow-empty -m $'Bump version and update changelog\n\n\nskip-checks:true'
+          git commit --allow-empty -m $'This commit should not trigger the ci workflow\n\n\nskip-checks:true'
           git push origin ${{ github.head_ref }}
