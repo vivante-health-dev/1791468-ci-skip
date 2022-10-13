@@ -1,0 +1,19 @@
+# Creates a dev release and pushes it to firebase distribution
+
+name: Commit and skip
+on: workflow_dispatch
+
+jobs:
+  commit_and_skip:
+    name: Commit and skip
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.PAT }}
+      - name: Push changes
+        shell: bash
+        run: |
+          git commit --allow-empty -m $'Bump version and update changelog\n\n\nskip-checks:true'
+          git push origin ${{ github.head_ref }}
