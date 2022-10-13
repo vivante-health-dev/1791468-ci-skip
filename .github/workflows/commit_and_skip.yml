@@ -26,6 +26,7 @@ jobs:
       - name: Not working skipper
         shell: bash
         run: |
+          git pull
           date >> README.md
           git add README.md
           git commit -m $'This doesn't work and will trigger the ci workflow\n\n\nskip-checks:true'
