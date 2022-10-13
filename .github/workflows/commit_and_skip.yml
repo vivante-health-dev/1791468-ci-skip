@@ -19,5 +19,7 @@ jobs:
       - name: Push changes
         shell: bash
         run: |
-          git commit --allow-empty -m $'This commit should not trigger the ci workflow'
+          date >> README.md
+          git add README.md
+          git commit -m $'This commit should not trigger the ci workflow'
           git push origin ${{ github.head_ref }}
