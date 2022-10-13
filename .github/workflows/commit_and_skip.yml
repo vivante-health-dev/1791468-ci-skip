@@ -26,13 +26,3 @@ jobs:
           git add README.md
           git commit -m $'This commit should not trigger the ci workflow'
           git push origin ${{ github.head_ref }}
-      - name: Trigger Workflow
-        uses: actions/github-script@v6
-        with:
-          script: |
-            github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: 'ci.yml',
-              ref: 'main',
-            })
