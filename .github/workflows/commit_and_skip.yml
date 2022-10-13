@@ -3,6 +3,10 @@
 name: Commit and skip
 on: workflow_dispatch
 
+permissions:
+  actions: write
+  contents: write
+
 jobs:
   commit_and_skip:
     name: Commit and skip
