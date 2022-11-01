@@ -30,3 +30,10 @@ jobs:
           git add README.md
           git commit -m $'This does not work and will trigger the ci workflow\n\n\nskip-checks:true'
           git push origin ${{ github.head_ref }}
+      - name: Fixed skipper
+        shell: bash
+        run: |
+          date >> README.md
+          git add README.md
+          git commit --cleanup=verbatim -m $'This should work and not trigger the ci workflow\n\n\nskip-checks:true'
+          git push origin ${{ github.head_ref }}
